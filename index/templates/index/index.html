@@ -1,0 +1,108 @@
+{% extends 'index/layout.html' %} {% block content %} {% load static%}
+
+<head>
+  <title>Home</title>
+</head>
+<body>
+  <div id="content">
+    <div id="right">
+      <div id="sidebar">
+        <ul>
+          <li>
+            <h2>Archives</h2>
+            <ul>
+              <li><a href="#">August 2022</a> <i>(1)</i></li>
+            </ul>
+          </li>
+          <li>
+            <h2>Ranking</h2>
+            <ul>
+              <li><a href="#">1° Genax23</a></li>
+              <li><a href="#">2° Jonstradamus</a></li>
+              <li><a href="#">3° LeeroyJenkins</a></li>
+              <li><a href="#">4° Reckful</a></li>
+              <li><a href="#">5° XxArthazzIllidanHDxX</a></li>
+              <li><a href="#">6° Taurenman</a></li>
+              <li><a href="#">7° Info</a></li>
+              <li><a href="#">8° PythonKiller4k</a></li>
+              <li><a href="#">9° ||DJaneiro||</a></li>
+              <li><a href="#">10° NekoKawaiiuwu</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="left">
+      <h1>Welcome to Bugstorm WoW Private server!</h1>
+      <br />
+      <div>
+        <p>
+          World of Warcraft is a 18-year-old video game that is still popular
+          among the gaming community. It is a Massive Multiplayer Online
+          Role-playing Game (MMORG) praised for its lore and gameplay. Players
+          need to log into a World of Warcraft (WoW) server to play the game.
+        </p>
+        <br />
+        <p>
+          We are the most stable and bugged wotlk private server in the world
+          today, with custom content and a top of the line hardware. Bugstorm is
+          run by professional developers and technicians to ensure the best
+          all-around gaming experience. Our team is made of dedicated and
+          passionate individuals who professionally create and maintain every
+          single aspect of the game.
+        </p>
+        <br />
+        <p>
+          Come join us and relive the glory days of the Wrath of the Lich King
+          expansion. Meet up with old friends or make notice ones. We are a
+          truly global community with over 53 different countries represented
+          among our players.
+        </p>
+        <br />
+        <p>
+          A vibrant and active community that is proud to call Bugstorm home...
+        </p>
+        <br />
+      </div>
+      <div class="small">
+        <p class="date">Posted on Aug 06, 2022 by Genax23</p>
+        <p class="file">
+          Filed under <a href="#">Uncategorized</a> | <a href="#">Edit</a> |
+          <a href="#">20 Comments</a>
+        </p>
+      </div>
+      <br />
+      <div>
+        <u><h2>Brand News</h2></u>
+        <br /><br />
+        {%for notice in notices %}
+        <div class="col-md-4 p-4">
+          <div class="card bg-black card-project">
+            <img
+              src="{{notice.image.url}}"
+              alt="{{notice.title}}"
+              class="card-img-top"
+              height="200px"
+            />
+            <div class="card-body">
+              <h2>{{notice.title}}</h2>
+              <br />
+              <p>{{notice.description}}</p>
+              {% if notice.url %}
+              <a
+                href="{{notice.url}}"
+                class="btn btn-light rounded-0 btn-sm"
+                target="_blank"
+                >{{notice.url}}</a
+              >
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="padding">Private server of World of Warcraft</div>
+  </div>
+</body>
+{% endblock content %}

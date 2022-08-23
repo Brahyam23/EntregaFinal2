@@ -1,0 +1,186 @@
+/*
+Design by Metamorphosis Design
+http://www.metamorphozis.com
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+a:link {
+  color: #c4940f;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #ff0000;
+}
+
+a:visited {
+  color: #c4940f;
+}
+
+* {
+  border: 0;
+  margin: 0;
+}
+
+body {
+  background: #000000 url(images/back_all.gif) repeat-x top;
+  font: 13px Tahoma, Arial, Helvetica, sans-serif;
+  color: #666666;
+}
+
+#main {
+  margin: 0 auto;
+  width: 787px;
+  background: #ffffff;
+}
+
+#logo {
+  width: 787px;
+  height: 51px;
+  background: url(images/header.jpg) no-repeat;
+  text-align: center;
+  padding-top: 220px;
+}
+
+#logo a {
+  text-decoration: none;
+  text-transform: lowercase;
+  font-style: italic;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#logo H2 a {
+  font-size: 12px;
+}
+
+#buttons {
+  height: 37px;
+  width: 700px;
+  border-left: 4px solid #ffffff;
+  background: url(images/buttons.jpg) repeat-x;
+  padding-left: 80px;
+}
+
+#buttons li {
+  display: inline;
+}
+
+#buttons a {
+  display: block;
+  float: left;
+  width: 100px;
+  height: 27px;
+  background: #ffffff url(images/buttons.jpg) repeat-x;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+#buttons a:hover {
+  width: 100px;
+  height: 27px;
+  background: #ffffff url(images/buttons_r.jpg) repeat-x;
+}
+
+#content {
+  width: 775px;
+  padding: 5px;
+  background: #ffffff;
+  min-height: 400px;
+}
+
+#left {
+  width: 500px;
+  padding: 10px;
+}
+
+#left H1 {
+  color: #ce0b09;
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+}
+#left H2 {
+  color: #ce0b09;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
+
+#right {
+  float: right;
+}
+
+#sidebar {
+  width: 230px;
+}
+
+#sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#sidebar li {
+  margin-bottom: 15px;
+}
+
+#sidebar li ul {
+  padding: 10px;
+  border-top: none;
+}
+
+#sidebar li li {
+  margin: 0;
+  padding: 3px 0;
+}
+
+#sidebar li h2 {
+  height: 35px;
+  margin: 0;
+  padding: 5px 0 0 10px;
+  background: url(images/title.jpg) no-repeat;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+#sidebar a:link {
+  text-decoration: none;
+}
+
+#sidebar a:hover {
+  text-decoration: underline;
+}
+#sidebar a:visited {
+  text-decoration: none;
+}
+
+#sidebar li a {
+  padding-left: 10px;
+  background: url(images/img09.gif) no-repeat left center;
+}
+#footer {
+  background: url(images/footer.gif) repeat-x;
+  height: 49px;
+  font-size: 10px;
+  color: #000000;
+  padding-top: 10px;
+  text-align: center;
+  border-top: 5px solid #977004;
+}
+
+#footer a {
+  color: #000000;
+  font-size: 10px;
+  text-decoration: none;
+}
+.padding {
+  padding: 10px;
+  color: #ff0000;
+  font-weight: bold;
+}

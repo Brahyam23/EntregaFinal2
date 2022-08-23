@@ -1,0 +1,22 @@
+{% extends 'index/layout.html' %} {% block content %}
+<body>
+  <h1 style="color: red">Add a new post</h1>
+  <form method="post">
+    {% csrf_token %} <br /><input
+      id="1"
+      type="text"
+      placeholder="Title"
+      name="title"
+      required
+    /><br /><br /><input
+      id="2"
+      type="text"
+      placeholder="Description"
+      name="description"
+      required
+    /><br /><br />
+    <input type="submit" value="Post it!" />
+    <br /><br />
+  </form>
+</body>
+{% endblock content %}

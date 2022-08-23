@@ -1,0 +1,26 @@
+{% extends 'index/layout.html' %} {% block content %}
+<head>
+  <title>Login</title>
+</head>
+<body>
+  {% if not error %}
+  <h1 style="color: red">Welcome back !</h1>
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %} {% if error %}
+    <h2 style="color: red">{{error}}</h2>
+    {% endif %}
+    <br />
+    {{ form.as_p }}<br /><br />
+    {{form.errors}}
+    <a href="#">Forgot your password?</a>
+    <br /><br />
+    <input type="submit" value="Log in" />
+    <br /><br />
+    <p>Don't have an account?</p>
+    <a href="{% url 'register' %}">Register now!</a>
+    <br /><br />
+  </form>
+</body>
+{% endblock content %}

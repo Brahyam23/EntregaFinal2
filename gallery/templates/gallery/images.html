@@ -1,0 +1,12 @@
+{% extends 'index/layout.html' %} {% block content %} {% load static%}
+<head>
+  <title>Gallery</title>
+</head>
+<body>
+  <div id="Images" class="row">
+    {%for image in images %}
+    <img src="{{image.image.url}}" alt="{{image.title}}" height="442px" />
+    {% endfor %}
+  </div>
+</body>
+{% endblock content %}
