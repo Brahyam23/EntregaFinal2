@@ -10,7 +10,9 @@
     </p>
     <br />
     <h3>
-      <a href="{% url 'new_post' %}" target="_blank">Add a new post</a>
+      <a href="{% url 'new_post' %}" target="_blank"
+        ><button type="button">Add a new post</button></a
+      >
     </h3>
   </div>
   <br /><br />
@@ -31,8 +33,12 @@
           <h2 style="color: red">{{post.title}}</h2>
           <br />
           <p>{{post.description|striptags|truncatechars:500 }}</p>
-          <br /><br />
+          <br />
           <p>{{post.date|date:'M d Y'}}</p>
+          <br />
+          <a href="{% url 'edit_post' post.id %}"
+            ><button type="button">Edit post</button></a
+          >
           <br /><br />
         </div>
       </div>

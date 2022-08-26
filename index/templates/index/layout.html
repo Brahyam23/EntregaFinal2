@@ -21,10 +21,24 @@
             {% block menu_buttons %}
             <li class="first"><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'new_image' %}">Gallery</a></li>
+
+            {% if not request.user.username %}
             <li><a href="{% url 'login' %}">Login</a></li>
             <li><a href="{% url 'register' %}">Join Us</a></li>
+
+            {% endif %}
+
             <li><a href="{% url 'forum' %}">Forum</a></li>
-            {% endblock menu_buttons %}
+
+            {% if request.user.username %}
+            <li>
+              <a href="{% url 'profile' %}"
+                >Hi, {{ request.user.first_name }}</a
+              >
+              <a href="{% url 'logout' %}">Logout</a>
+            </li>
+
+            {% endif %} {% endblock menu_buttons %}
           </ul>
         </div>
       </div>

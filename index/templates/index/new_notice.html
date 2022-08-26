@@ -1,0 +1,10 @@
+{% extends 'index/layout.html' %} {% block content %}
+<body>
+  <h1 style="color: red">Add a new notice</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %} <br />{{form.as_p}}<br /><br />
+    <input type="submit" value="Post it!" />
+    <br /><br />
+  </form>
+</body>
+{% endblock content %}

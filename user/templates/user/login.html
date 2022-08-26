@@ -9,7 +9,7 @@
 
   <form method="post">
     {% csrf_token %} {% if error %}
-    <h2 style="color: red">{{error}}</h2>
+    <h1 style="color: red">{{error}}</h1>
     {% endif %}
     <br />
     {{ form.as_p }}<br /><br />
@@ -20,7 +20,8 @@
     <br /><br />
     <p>Don't have an account?</p>
     <a href="{% url 'register' %}">Register now!</a>
-    <br /><br />
   </form>
+  <br /><br />
 </body>
+
 {% endblock content %}

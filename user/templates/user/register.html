@@ -9,12 +9,9 @@
   <form method="post">
     {% csrf_token %} {% if error %}
     <h2 style="color: red">{{error}}</h2>
-    {% endif %}
-    <br />
-    {{ form.as_p }}
-    <br /><br />
+    {% endif %} {% csrf_token %} <br />{{ form.as_p }}<br /><br />
     <input type="submit" value="Register" />
-    <br /><br />
   </form>
+  <br /><br />
 </body>
 {% endblock content %}

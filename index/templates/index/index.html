@@ -74,7 +74,13 @@
       <br />
       <div>
         <u><h2>Brand News</h2></u>
-        <br /><br />
+        <br />
+        <h3>
+          <a href="{% url 'new_notice' %}" target="_blank"
+            ><button type="button">Add a new notice</button></a
+          >
+        </h3>
+        <br />
         {%for notice in notices %}
         <div class="col-md-4 p-4">
           <div class="card bg-black card-project">
@@ -83,17 +89,21 @@
               alt="{{notice.title}}"
               class="card-img-top"
               height="200px"
-            />
+            /><br /><br />
             <div class="card-body">
               <h2>{{notice.title}}</h2>
               <br />
               <p>{{notice.description}}</p>
+              <br />
               {% if notice.url %}
               <a
                 href="{{notice.url}}"
                 class="btn btn-light rounded-0 btn-sm"
                 target="_blank"
                 >{{notice.url}}</a
+              ><br />
+              <a href="{% url 'edit_notice' notice.id %}"
+                ><br /><button type="button">Edit post</button></a
               >
               {% endif %}
             </div>

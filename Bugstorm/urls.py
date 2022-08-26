@@ -28,10 +28,12 @@ from django.contrib.auth.views import LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('login/', log_in, name='login'),
+    path('notice/', include('index.urls')),
     path('register/', new_user, name='register'),
-    # path('logout/', LogoutView.as_view(template_name='logout.html'), name="logout"),
+    path('login/', log_in, name='login'),
+    path('user/', include('user.urls')),
+    path('logout/', LogoutView.as_view(template_name='user/logout.html'), name="logout"),
     path('gallery/', new_image, name='new_image'),
-    path('forum/', include('forum.urls'))
+    path('forum/', include('forum.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

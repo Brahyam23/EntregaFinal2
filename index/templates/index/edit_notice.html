@@ -1,0 +1,27 @@
+{% extends 'index/layout.html' %} {% block content %}
+<head>
+  <title>Edit Notice</title>
+</head>
+<script type="text/javascript">
+  function ConfirmDelete() {
+    var answer = confirm("Are you sure you want to delete this notice?");
+    if (answer == true) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+</script>
+<body>
+  <h1 style="color: red">Editing notice: {{ post.title }}</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %} <br />{{form.as_p}}<br /><br />
+    <input type="submit" value="Save changes" /><a
+      href="{% url 'del_notice' notice.id %}"
+      ><button type="button" onclick="return ConfirmDelete()">
+        Delete notice
+      </button></a
+    >
+  </form>
+</body>
+{% endblock content %}
