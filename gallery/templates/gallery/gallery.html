@@ -1,0 +1,26 @@
+{% extends 'index/layout.html' %} {% block content %} {% load static%}
+<head>
+  <title>Gallery</title>
+</head>
+<body>
+  <br />{% if request.user.username %}
+  <h3>
+    <a href="{% url 'add_image' %}" target="_blank"
+      ><button type="button">Add a new image</button></a
+    >
+  </h3>
+  <br />
+  {% endif %}
+  <div id="Images" class="row">
+    {%for image in images %}
+    <img
+      src="{{image.image.url}}"
+      alt="{{image.title}}"
+      height="442px"
+    /><br />{% if request.user.username %}
+    <a href="{% url 'edit_image' image.id %}"
+      ><button type="button">Change this image:</button></a
+    ><br />{% endif %}<br />{% endfor %}
+  </div>
+</body>
+{% endblock content %}

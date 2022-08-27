@@ -1,21 +1,50 @@
 {% extends 'index/layout.html' %} {% block content %}
 <body>
   <div>
-    <h1 style="color: red">Official Forum</h1>
     <br />
-    <p>
-      Discuss World of Warcraft Lore or share your original fan fiction, or
-      role-play. Off-Topic. For all your non-Blizzard game discussions. Please,
-      respect the rules.
-    </p>
+    <center><h1 style="color: red">Official Forum</h1></center>
     <br />
+    <ul>
+      <li>
+        <p style="color: red">LORE</p>
+        Discuss World of Warcraft Lore or share your original fan fiction, or
+        role-play.
+      </li>
+      <br /><br />
+      <li>
+        <p style="color: red">OFF-TOPIC</p>
+        For all your non-Blizzard game discussions.
+      </li>
+      <br /><br />
+      <li>
+        <p style="color: red">SUPPORT</p>
+        Problem installing? In-game or account issues? Reporting bugs? Come and
+        join us here in Support.
+      </li>
+      <br /><br />
+      <li>
+        <p style="color: red">PVP</p>
+        Discuss Arenas and Battleground here with your fellow players.
+      </li>
+      <br /><br />
+      <li>
+        <p style="color: red">GUIDES</p>
+        New to World of Warcraft or returning after some time away? Come and
+        join us.
+      </li>
+      <br /><br />
+    </ul>
+    <center><h2 style="color: red">Please, respect the rules.</h2></center>
+    <br /><br /><br /><br />
+    {% if request.user.username %}
     <h3>
       <a href="{% url 'new_post' %}" target="_blank"
         ><button type="button">Add a new post</button></a
       >
     </h3>
+    <br /><br />
+    {% endif %}
   </div>
-  <br /><br />
   <div>
     <h2 style="color: red">What are you looking for?</h2>
     <form method="get">
@@ -35,11 +64,10 @@
           <p>{{post.description|striptags|truncatechars:500 }}</p>
           <br />
           <p>{{post.date|date:'M d Y'}}</p>
-          <br />
+          <br />{% if request.user.username %}
           <a href="{% url 'edit_post' post.id %}"
             ><button type="button">Edit post</button></a
-          >
-          <br /><br />
+          >{% endif %} <br /><br />
         </div>
       </div>
     </div>

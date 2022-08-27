@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Notice
 from django.contrib.auth.decorators import login_required
+from .models import Notice
 from .forms import EditNotice, NewNotice
 
 
@@ -38,18 +38,20 @@ def edit_notice(request, notice_id):
 
     if request.method == 'GET':
         form = EditNotice(initial={"title": notice.title,
-                        "description": notice.description,
-                        "url": notice.url,
-                        "image": notice.image})
+                                   "description": notice.description,
+                                   "url": notice.url,
+                                   "image": notice.image})
         return render(request, 'index/edit_notice.html', {'form': form, 'notice': notice})
     else:
-        form = EditNotice(request.POST)
+        form = EditNotice(request.POST, request.FILES)
 
         if form.is_valid():
             data = form.cleaned_data
 
             notice.title = data.get('title')
             notice.description = data.get('description')
+            notice.image = data.get('image')
+            notice.url = data.get('url')
 
             notice.save()
             return redirect('index')

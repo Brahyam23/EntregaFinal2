@@ -13,6 +13,7 @@ class Register(UserCreationForm):
     password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
     password2 = forms.CharField(
         label="Confirm password", widget=forms.PasswordInput)
+# image=forms.ImageField(label="Avatar")
 
     class Meta:
         model = User
@@ -28,6 +29,7 @@ class Edit(UserCreationForm):
         label="New password", widget=forms.PasswordInput)
     password2 = forms.CharField(
         label="Confirm new password", widget=forms.PasswordInput)
+#image=forms.ImageField(label="New Avatar")
 
     class Meta:
         model = User

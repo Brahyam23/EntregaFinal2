@@ -4,11 +4,12 @@
 </head>
 <body>
   {% if not error %}
-  <h1 style="color: red">Welcome to our ranks!</h1>
+  <br />
+  <center><h1 style="color: red">Welcome to our ranks!</h1></center>
   {% endif %}
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %} {% if error %}
-    <h2 style="color: red">{{error}}</h2>
+    <center><h2 style="color: red">{{error}}</h2></center>
     {% endif %} {% csrf_token %} <br />{{ form.as_p }}<br /><br />
     <input type="submit" value="Register" />
   </form>

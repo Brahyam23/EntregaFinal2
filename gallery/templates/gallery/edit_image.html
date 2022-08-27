@@ -1,12 +1,10 @@
 {% extends 'index/layout.html' %} {% block content %}
 <head>
-  <title>Profile</title>
+  <title>Edit Image</title>
 </head>
 <script type="text/javascript">
   function ConfirmDelete() {
-    var answer = confirm(
-      "Are you sure you want to delete your account? CAUTION: This is irreversible!!"
-    );
+    var answer = confirm("Are you sure you want to delete this image?");
     if (answer == true) {
       return true;
     } else {
@@ -15,16 +13,15 @@
   }
 </script>
 <body>
-  <br />
-  <center><h1 style="color: red">Here you can edit you information</h1></center>
+  <h1 style="color: red">Editing image:</h1>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %} <br />{{form.as_p}}<br /><br />
-    <input type="submit" value="Edit" /><a href="{% url 'del_user' %}"
+    <input type="submit" value="Save changes" /><a
+      href="{% url 'del_image' image.id %}"
       ><button type="button" onclick="return ConfirmDelete()">
-        Erase account
+        Delete image
       </button></a
     >
   </form>
-  <br /><br />
 </body>
 {% endblock content %}

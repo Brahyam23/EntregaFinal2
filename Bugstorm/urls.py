@@ -31,9 +31,9 @@ urlpatterns = [
     path('notice/', include('index.urls')),
     path('register/', new_user, name='register'),
     path('login/', log_in, name='login'),
-    path('user/', include('user.urls')),
     path('logout/', LogoutView.as_view(template_name='user/logout.html'), name="logout"),
-    path('gallery/', new_image, name='new_image'),
+    path('user/', include('user.urls')),
+    path('gallery/', include('gallery.urls')),
     path('forum/', include('forum.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

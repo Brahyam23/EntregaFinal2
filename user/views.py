@@ -2,7 +2,7 @@ from http.client import HTTPResponse
 from xml.dom import UserDataHandler
 from django.shortcuts import render, redirect
 # Formularios para iniciar sesion o registrar
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 # Funciones para autenticar e iniciar sesion
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
@@ -38,7 +38,7 @@ def new_user(request):
     if request.method == 'GET':
         return render(request, 'user/register.html', {'form': form})
     else:
-        form = Register(request.POST)  # Posiblemente traiga problemas
+        form = Register(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect("login")
@@ -46,21 +46,24 @@ def new_user(request):
 
 
 @login_required
-def profile(request):
+def profile(request):  # si no funciona, probar con clases basadas en vistas
     if request.method == 'GET':
+        # image:request.userimage
         form = Edit(initial={"email": request.user.email})
         return render(request, 'user/profile.html', {'form': form})
     else:
-        form = Edit(request.POST)
+        form = Edit(request.POST, request.FILES)
 
         if form.is_valid():
             data = form.cleaned_data
 
             user = request.user
 
-            user.email = data['email']
-            user.password1 = data['password1']
-            user.password2 = data['password2']
+            user.email = data.get('email')
+            user.password1 = data.get('password1')
+            user.password2 = data.get('password2')
+            # user.image=data.get('image')
+
             user.save()
             return redirect('index')
         return render(request, 'user/profile.html', {'form': form})
