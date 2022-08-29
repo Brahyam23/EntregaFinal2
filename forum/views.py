@@ -28,8 +28,10 @@ def new_post(request):
 
         title = formulary.get("title")
         description = formulary.get("description")
+        created_by = request.user.username
 
-        new_post = Post(title=title, description=description)
+        new_post = Post(title=title, description=description,
+                        created_by=created_by)
         new_post.save()
 
         return redirect("forum")

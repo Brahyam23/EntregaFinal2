@@ -127,8 +127,18 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Imágenes
+# Images
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# Login required
 LOGIN_URL = '/login/'
+
+# Email
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'bugstormwow@gmail.com'
+EMAIL_HOST_PASSWORD = 'iajhhipfsaywemaj'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

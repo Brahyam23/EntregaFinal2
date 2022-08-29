@@ -8,25 +8,41 @@
     <div id="right">
       <div id="sidebar">
         <ul>
+          {% if request.user.username %}
           <li>
-            <h2>Archives</h2>
-            <ul>
-              <li><a href="#">August 2022</a> <i>(1)</i></li>
-            </ul>
+            <h2>Profile</h2>
+            <h4>Avatar:</h4>
+            {% if avatar %}
+            <br />
+            <img src="{{avatar}}" alt="Avatar" width="230x" />
+            {% else %}
+            <h5>You have no choice an avatar yet</h5>
+            {% endif %}
+            <br /><br />
+            <h4>Username: {{request.user.username}}</h4>
+            <h4>Name: {{request.user.first_name}}</h4>
+            <h4>Last name: {{request.user.last_name}}</h4>
+            <h4>Email: {{request.user.email}}</h4>
+            <h4>Joined: {{request.user.date_joined|date:'M d Y'}}</h4>
+            <h4>Your position in rank: {{value}}°</h4>
           </li>
+          {% endif %}
+
           <li>
             <h2>Ranking</h2>
             <ul>
-              <li><a href="#">1° Genax23</a></li>
-              <li><a href="#">2° Jonstradamus</a></li>
-              <li><a href="#">3° LeeroyJenkins</a></li>
-              <li><a href="#">4° Reckful</a></li>
-              <li><a href="#">5° XxArthazzIllidanHDxX</a></li>
-              <li><a href="#">6° Taurenman</a></li>
-              <li><a href="#">7° Info</a></li>
-              <li><a href="#">8° PythonKiller4k</a></li>
-              <li><a href="#">9° ||DJaneiro||</a></li>
-              <li><a href="#">10° NekoKawaiiuwu</a></li>
+              <li><a href="https://github.com/Brahyam23">1° Genax23</a></li>
+              <li><a href="{% url 'not_found' %}">2° Jonstradamus</a></li>
+              <li><a href="{% url 'not_found' %}">3° LeeroyJenkins</a></li>
+              <li><a href="{% url 'not_found' %}">4° Reckful</a></li>
+              <li>
+                <a href="{% url 'not_found' %}">5° XxArthazzIllidanHDxX</a>
+              </li>
+              <li><a href="{% url 'not_found' %}">6° Taurenman</a></li>
+              <li><a href="{% url 'not_found' %}">7° Info</a></li>
+              <li><a href="{% url 'not_found' %}">8° PythonKiller4k</a></li>
+              <li><a href="{% url 'not_found' %}">9° ||DJaneiro||</a></li>
+              <li><a href="{% url 'not_found' %}">10° NekoKawaiiuwu</a></li>
             </ul>
           </li>
         </ul>
@@ -67,8 +83,9 @@
       <div class="small">
         <p class="date">Posted on Aug 06, 2022 by Genax23</p>
         <p class="file">
-          Filed under <a href="#">Uncategorized</a> | <a href="#">Edit</a> |
-          <a href="#">20 Comments</a>
+          Filed under <a href="{% url 'not_found' %}">Uncategorized</a> |
+          <a href="{% url 'not_found' %}">Edit</a> |
+          <a href="{% url 'not_found' %}">20 Comments</a>
         </p>
       </div>
       <br />
@@ -101,9 +118,13 @@
                 class="btn btn-light rounded-0 btn-sm"
                 target="_blank"
                 >{{notice.url}}</a
-              ><br />{% if request.user.username %}
+              ><br /><br />
+              <br />
+              <p>Created by: {{notice.created_by }}</p>
+              <p>{{notice.date|date:'M d Y'}}</p>
+              <br />{% if request.user.username %}
               <a href="{% url 'edit_notice' notice.id %}"
-                ><br /><button type="button">Edit post</button></a
+                ><br /><button type="button">Edit notice</button></a
               >
               {% endif %}{% endif %}
             </div>

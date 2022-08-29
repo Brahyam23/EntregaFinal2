@@ -35,8 +35,8 @@
               <a href="{% url 'profile' %}"
                 >Hi, {{ request.user.first_name }}</a
               >
-              <a href="{% url 'logout' %}">Logout</a>
             </li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
 
             {% endif %} {% endblock menu_buttons %}
           </ul>

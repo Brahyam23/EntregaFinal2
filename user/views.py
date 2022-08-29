@@ -8,6 +8,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .forms import Register, Edit
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from .models import Avatar
 
 
 def log_in(request):
@@ -35,22 +37,29 @@ def log_in(request):
 
 def new_user(request):
     form = Register()
+
     if request.method == 'GET':
+
         return render(request, 'user/register.html', {'form': form})
+
     else:
-        form = Register(request.POST, request.FILES)
+        form = Register(request.POST)
+
         if form.is_valid():
             form.save()
+
             return redirect("login")
+
         return render(request, "user/register.html", {'error': 'Invalid form or already exist', 'form': form})
 
 
 @login_required
 def profile(request):  # si no funciona, probar con clases basadas en vistas
     if request.method == 'GET':
-        # image:request.userimage
         form = Edit(initial={"email": request.user.email})
+
         return render(request, 'user/profile.html', {'form': form})
+
     else:
         form = Edit(request.POST, request.FILES)
 
@@ -62,16 +71,19 @@ def profile(request):  # si no funciona, probar con clases basadas en vistas
             user.email = data.get('email')
             user.password1 = data.get('password1')
             user.password2 = data.get('password2')
-            # user.image=data.get('image')
 
+            avatar = Avatar(user=user, avatar=data.get('avatar'))
+
+            avatar.save()
             user.save()
+
             return redirect('index')
+
         return render(request, 'user/profile.html', {'form': form})
 
 
 @ login_required
 def del_user(request):
-
     user = User.objects.get(id=request.user.id)
 
     user.delete()

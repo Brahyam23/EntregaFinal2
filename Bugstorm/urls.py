@@ -20,19 +20,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from index.views import *
-from user.views import *
-from gallery.views import *
-from django.contrib.auth.views import LogoutView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('not_found/', not_found, name="not_found"),
     path('', index, name='index'),
     path('notice/', include('index.urls')),
-    path('register/', new_user, name='register'),
-    path('login/', log_in, name='login'),
-    path('logout/', LogoutView.as_view(template_name='user/logout.html'), name="logout"),
-    path('user/', include('user.urls')),
+    path('accounts/', include('user.urls')),
     path('gallery/', include('gallery.urls')),
     path('forum/', include('forum.urls')),
 ]

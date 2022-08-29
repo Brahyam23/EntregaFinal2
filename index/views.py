@@ -2,11 +2,21 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Notice
 from .forms import EditNotice, NewNotice
+from user.models import Avatar
+from random import randint
 
 
 def index(request):
+
     notice = Notice.objects.all()
-    return render(request, 'index/index.html', {'notices': notice})
+    value = randint(11, 100)
+
+    try:
+        avatar = Avatar.objects.filter(user=request.user).first()
+        return render(request, 'index/index.html', {'notices': notice, 'avatar': avatar.avatar.url, 'value': value})
+
+    except:
+        return render(request, 'index/index.html', {'notices': notice, 'value': value})
 
 
 @login_required
@@ -25,7 +35,8 @@ def new_notice(request):
             new_notice = Notice(title=data.get("title"),
                                 description=data.get("description"),
                                 image=data.get("image"),
-                                url=data.get("url"))
+                                url=data.get("url"),
+                                created_by=request.user.username)
             new_notice.save()
 
             return redirect("index")
@@ -65,3 +76,7 @@ def del_notice(request, notice_id):
     notice.delete()
 
     return redirect('index')
+
+
+def not_found(request):
+    return render(request, 'index/404.html')

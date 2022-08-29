@@ -12,7 +12,7 @@
       </li>
       <br /><br />
       <li>
-        <p style="color: red">OFF-TOPIC</p>
+        <p style="color: red">OFF - TOPIC</p>
         For all your non-Blizzard game discussions.
       </li>
       <br /><br />
@@ -34,7 +34,9 @@
       </li>
       <br /><br />
     </ul>
-    <center><h2 style="color: red">Please, respect the rules.</h2></center>
+    <center>
+      <u><h2 style="color: red">Please, respect the rules.</h2></u>
+    </center>
     <br /><br /><br /><br />
     {% if request.user.username %}
     <h3>
@@ -63,6 +65,7 @@
           <br />
           <p>{{post.description|striptags|truncatechars:500 }}</p>
           <br />
+          <p>Created by: {{post.created_by }}</p>
           <p>{{post.date|date:'M d Y'}}</p>
           <br />{% if request.user.username %}
           <a href="{% url 'edit_post' post.id %}"
