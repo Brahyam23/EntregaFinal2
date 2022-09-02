@@ -25,6 +25,8 @@ from index.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('not_found/', not_found, name="not_found"),
+    path('routes/', routes, name="routes"),
+    path('about/', about, name="about"),
     path('', index, name='index'),
     path('notice/', include('index.urls')),
     path('accounts/', include('user.urls')),

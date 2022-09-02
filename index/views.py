@@ -80,3 +80,11 @@ def del_notice(request, notice_id):
 
 def not_found(request):
     return render(request, 'index/404.html')
+
+
+def routes(request):
+    return render(request, 'index/routes.html')
+
+
+def about(request):
+    return render(request, 'index/about.html')
