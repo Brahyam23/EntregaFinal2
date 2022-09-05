@@ -1,3 +1,4 @@
+{% extends 'index/layout.html' %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,6 +8,11 @@
     <title>404</title>
   </head>
   <body>
-    <h1>Ups... Lo siento, parece que este apartado no esta listo todavía.</h1>
+    <br />
+    <h1 style="color: red">Ups... Sorry Warrior, work in progress.</h1>
+    <br /><br />
+    <h2><a href="{% url 'routes' %}"> Here you got some helpful links</a></h2>
+    <br /><br />
   </body>
 </html>
+{% endblock content %}

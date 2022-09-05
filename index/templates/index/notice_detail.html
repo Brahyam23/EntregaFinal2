@@ -1,0 +1,19 @@
+{% extends 'index/layout.html' %} {% block content %}
+<head>
+  <title>{{notice.title}}</title>
+</head>
+<body>
+  <div id="content">
+    <br />
+    <h2 style="color: red">{{notice.title}}</h2>
+    <br />
+    <h4>{{notice.date|date:'F jS Y'}}</h4>
+    <br /><br />
+    <img src="{{notice.image.url}}" alt="{{notice.title}}" height="250px" />
+    <br /><br />
+    <p>{{notice.description}}</p>
+    <br />
+  </div>
+</body>
+
+{% endblock content %}

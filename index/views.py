@@ -43,6 +43,11 @@ def new_notice(request):
         return render(request, 'index/new_notice.html', {'form': form})
 
 
+def notice_detail(request, notice_id):
+    notice = get_object_or_404(Notice, pk=notice_id)
+    return render(request, 'index/notice_detail.html', {'notice': notice})
+
+
 @ login_required
 def edit_notice(request, notice_id):
     notice = get_object_or_404(Notice, pk=notice_id)
@@ -80,6 +85,10 @@ def del_notice(request, notice_id):
 
 def not_found(request):
     return render(request, 'index/404.html')
+
+
+def handle_not_found(request, exception):
+    return render(request, "index/404.html")
 
 
 def routes(request):

@@ -108,9 +108,13 @@
               height="200px"
             /><br /><br />
             <div class="card-body">
-              <h2>{{notice.title}}</h2>
+              <h2>
+                <a href="{% url 'notice_detail' notice.id%}"
+                  >{{notice.title}}</a
+                >
+              </h2>
               <br />
-              <p>{{notice.description}}</p>
+              <p>{{notice.description|striptags|truncatechars:100}}</p>
               <br />
               {% if notice.url %}
               <a

@@ -61,9 +61,11 @@
     <div class="col-md-4 p-4">
       <div class="card bg-black card-project">
         <div class="card-body">
-          <h2 style="color: red">{{post.title}}</h2>
+          <h2 style="color: red">
+            <a href="{% url 'post_detail' post.id%}">{{post.title}}</a>
+          </h2>
           <br />
-          <p>{{post.description|striptags|truncatechars:500 }}</p>
+          <p>{{post.description|striptags|truncatechars:100 }}</p>
           <br />
           <p>Created by: {{post.created_by }}</p>
           <p>{{post.date|date:'M d Y'}}</p>

@@ -1,0 +1,17 @@
+{% extends 'index/layout.html' %} {% block content %}
+<head>
+  <title>{{post.title}}</title>
+</head>
+<body>
+  <div id="content">
+    <br />
+    <h2 style="color: red">{{post.title}}</h2>
+    <br />
+    <h4>{{post.date|date:'F jS Y'}}</h4>
+    <br /><br />
+    <p>{{post.description}}</p>
+    <br />
+  </div>
+</body>
+
+{% endblock content %}

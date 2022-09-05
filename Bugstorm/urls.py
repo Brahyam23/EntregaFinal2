@@ -34,3 +34,5 @@ urlpatterns = [
     path('forum/', include('forum.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = "index.views.handle_not_found"

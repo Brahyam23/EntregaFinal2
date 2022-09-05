@@ -4,7 +4,7 @@ from django.utils import timezone
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=500)
+    description = models.CharField(max_length=1000)
     date = models.DateTimeField(default=timezone.now)
     created_by = models.CharField(max_length=100, default="Anonymous User")
 

@@ -1,3 +1,4 @@
+{% extends 'index/layout.html' %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,71 +8,139 @@
     <title>Routes</title>
   </head>
   <body>
-    <h1>Rutas del proyecto</h1>
+    <br>
+    <center><h1 style="color: red">Rutas del proyecto</h1></center>
+    <br />
     <ul>
       <li>
-        <h2>Inicio: <a href="{% url 'index' %}">Ver más</a></h2>
+        <h3>Inicio: <a href="{% url 'index' %}">Ver más</a></h3>
       </li>
+      <br />
       <li>
-        <h2>Error 404: <a href="{% url 'not_found' %}">Ver más</a></h2>
+        <h3>Error 404: <a href="{% url 'not_found' %}">Ver más</a></h3>
       </li>
+      <br />
       <li>
-        <h2>About: <a href="{% url 'about' %}">Ver más</a></h2>
+        <h3>About: <a href="{% url 'about' %}">Ver más</a></h3>
       </li>
+      <br />
       <li>
-        <h2>New notice: <a href="{% url 'new_notice' %}">Ver más</a></h2>
+        <h3>Nueva noticia: <a href="{% url 'new_notice' %}">Ver más</a></h3>
       </li>
+      <br />
       <li>
-        <h2>
-          Editar noticia(Seleccionar la noticia deseada
-          desde el index. Debes estar logueado): <a href="{% url 'index' %}">Ver más</a>
-        </h2>
-        <li>
-          <h2>Borrar noticia(Entrar en la noticia, editarla y presionar "delete notice" para borrar. Debes estar logueado) <a href="{% url 'index' %}">Ver más</a></h2>
-        </li>
+        <h3>
+          Detalles de noticia(En la página principal, presiona el título de una
+          notica para abrirla y verla en detalle)
+          <a href="{% url 'index' %}">Ver más</a>
+        </h3>
       </li>
+      <br />
       <li>
-        <h2>Registrarse: <a href="{% url 'register' %}">Ver más</a></h2>
+        <h3>
+          Editar noticia(Seleccionar la noticia deseada desde el index. Debes
+          estar logueado): <a href="{% url 'index' %}">Ver más</a>
+        </h3>
       </li>
+      <br />
       <li>
-        <h2>Iniciar sesión: <a href="{% url 'login' %}">Ver más</a></h2>
+        <h3>
+          Borrar noticia(Entrar en la noticia, editarla y presionar "delete
+          notice" para borrar. Debes estar logueado)
+          <a href="{% url 'index' %}">Ver más</a>
+        </h3>
       </li>
+      <br />
       <li>
-        <h2>Editar perfil(Debes estar logueado): <a href="{% url 'profile' %}">Ver más</a></h2>
+        <h3>Registrarse: <a href="{% url 'register' %}">Ver más</a></h3>
       </li>
+      <br />
       <li>
-        <h2>Borrar cuenta(Debes estar logueado): <a href="{% url 'del_user' %}">Ver más</a></h2>
+        <h3>Iniciar sesión: <a href="{% url 'login' %}">Ver más</a></h3>
       </li>
+      <br />
       <li>
-        <h2>Cerrar sesión: <a href="{% url 'logout' %}">Ver más</a></h2>
+        <h3>
+          Editar perfil(Debes estar logueado):
+          <a href="{% url 'profile' %}">Ver más</a>
+        </h3>
       </li>
+      <br />
       <li>
-        <h2>Reset password: <a href="{% url 'password_reset' %}">Ver más</a></h2>
+        <h3>
+          Borrar cuenta(Debes estar logueado):
+          <a href="{% url 'del_user' %}">Ver más</a>
+        </h3>
       </li>
+      <br />
       <li>
-        <h2>Galería: <a href="{% url 'gallery' %}">Ver más</a></h2>
+        <h3>Cerrar sesión: <a href="{% url 'logout' %}">Ver más</a></h3>
       </li>
+      <br />
       <li>
-        <h2>Añadir imágen(Debes estar logueado): <a href="{% url 'add_image' %}">Ver más</a></h2>
+        <h3>
+          Reset password: <a href="{% url 'password_reset' %}">Ver más</a>
+        </h3>
       </li>
+      <br />
       <li>
-        <h2>Cambiar imágen(Selecciona la imágen deseada desde la galería. Debes estar logueado): <a href="{% url 'gallery' %}">Ver másmás</a></h2>
+        <h3>Galería: <a href="{% url 'gallery' %}">Ver más</a></h3>
       </li>
+      <br />
       <li>
-        <h2>Borrar imágen(Al editar una imágen, presiona "Delete imagen" para borrarla. Debes estar logueado): <a href="{% url 'gallery' %}">Ver más</a></h2>
+        <h3>
+          Añadir imágen(Debes estar logueado):
+          <a href="{% url 'add_image' %}">Ver más</a>
+        </h3>
       </li>
+      <br />
       <li>
-        <h2>Foro: <a href="{% url 'forum' %}">Ver más</a></h2>
+        <h3>
+          Cambiar imágen(Selecciona la imágen deseada desde la galería. Debes
+          estar logueado): <a href="{% url 'gallery' %}">Ver másmás</a>
+        </h3>
       </li>
+      <br />
       <li>
-        <h2>Añadir publicación: <a href="{% url 'new_post' %}">Ver más</a></h2>
+        <h3>
+          Borrar imágen(Al editar una imágen, presiona "Delete imagen" para
+          borrarla. Debes estar logueado):
+          <a href="{% url 'gallery' %}">Ver más</a>
+        </h3>
       </li>
+      <br />
       <li>
-        <h2>Editar publicación(Selecciona el post deseado desde el forum. Debes estar logueado): <a href="{% url 'forum' %}">Ver más</a></h2>
+        <h3>Foro: <a href="{% url 'forum' %}">Ver más</a></h3>
       </li>
+      <br />
       <li>
-        <h2>Borrar publicación(Al editar una publicación, presiona "Delete post" para borrarla. Debes estar logueado): <a href="{% url 'forum' %}">Ver más</a></h2>
+        <h3>Añadir publicación: <a href="{% url 'new_post' %}">Ver más</a></h3>
       </li>
+      <br />
+      <li>
+        <h3>
+          Detalles publicación(En el foro, presiona el título para abrirla y
+          verla en detalle) <a href="{% url 'forum' %}">Ver más</a>
+        </h3>
+      </li>
+      <br />
+      <li>
+        <h3>
+          Editar publicación(Selecciona el post deseado desde el forum. Debes
+          estar logueado): <a href="{% url 'forum' %}">Ver más</a>
+        </h3>
+      </li>
+      <br />
+      <li>
+        <h3>
+          Borrar publicación(Al editar una publicación, presiona "Delete post"
+          para borrarla. Debes estar logueado):
+          <a href="{% url 'forum' %}">Ver más</a>
+        </h3>
+      </li>
+      <br />
     </ul>
   </body>
 </html>
+
+{% endblock content %}
