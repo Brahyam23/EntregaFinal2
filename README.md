@@ -1,5 +1,7 @@
 ENTREGA INTERMEDIA DEL PROYECTO FINAL Brahyam Leiva
 
+VIDEO PRESENTACIÓN DE PROYECTO: https://www.youtube.com/watch?v=KxmTnGGda5E
+
 Bienvenidos a mi proyecto.
 
 Como verán es una pagina web de un servidor pirata del mitico juego WoW, me surgió la idea de uno de los templates que vi buscando por internet sumado a los años que le he dedicado a este RPG.
