@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#oe#7_up7j2*pejw7bao-0ohgxv_%w+noc#kuz$m4j36dhn9bt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'Bugstorm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -140,5 +140,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bugstormwow@gmail.com'
-EMAIL_HOST_PASSWORD = 'iajhhipfsaywemaj'
+EMAIL_HOST_PASSWORD = 'jtrlplcwjohjbvwh'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
