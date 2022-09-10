@@ -72,6 +72,9 @@ def profile(request):  # si no funciona, probar con clases basadas en vistas
             user.password1 = data.get('password1')
             user.password2 = data.get('password2')
 
+            del_avatar = Avatar.objects.all()  # Primera solución al problema del avatar
+            del_avatar.delete()  # Borramos el avatar anterior antes de guardar el nuevo
+
             avatar = Avatar(user=user, avatar=data.get('avatar'))
 
             avatar.save()
